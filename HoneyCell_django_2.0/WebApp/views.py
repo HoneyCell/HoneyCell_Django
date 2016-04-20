@@ -771,17 +771,10 @@ import csv
 def get_json_result(request, task_id):
 
     print(task_id)
-
-<<<<<<< Updated upstream
     print("in the get_json_result function.")
-=======
-    # json_url = 'WebApp/JSON/12345678.json'
-    json_url = 'WebApp/static/WebApp/json/honeycomb.json'
->>>>>>> Stashed changes
 
     # try:
     finished_task = Task.objects.get(id = task_id)
-
 
     json_url = ""
 
