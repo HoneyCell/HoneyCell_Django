@@ -780,13 +780,13 @@ def get_json_result(request, task_id):
 
     print(finished_task)
 
+    # get result address
     if finished_task.output_file_address:
         json_url = finished_task.output_file_address
     
     print(json_url)
 
-    # task does not exist
-    # except ObjectDoesNotExist:
+
     if json_url != "":
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -795,21 +795,19 @@ def get_json_result(request, task_id):
             data = json_data.read()
             # print(data)
             return JsonResponse((data), safe=False)
-        except (OSError, IOError) as e:
-            pass
 
-    # hard code
-    else:
-        json_url = 'WebApp/static/WebApp/json/honeycomb.json'
-        try:
+        # file path has problem hard code
+        except (OSError, IOError) as e:
+            json_url = 'WebApp/static/WebApp/json/honeycomb.json'
             BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             json_data = open(os.path.join(BASE_DIR, json_url))
             data = json_data.read()
-
-            # print(data)
             return JsonResponse((data), safe=False)
-        except (OSError, IOError) as e:
-            pass 
+
+    # task is still running (no task finish address in db)
+    else:
+        pass
+
 
 
 
@@ -1387,6 +1385,11 @@ def task_finished(request):
         task.task_status = completed_status
 
         print(task.task_status)
+
+        # save the task result address
+        task.output_file_address = result_address
+
+        print(task.output_file_address)
 
         task.save()
         print("Task table modify success")

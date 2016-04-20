@@ -6,7 +6,7 @@
 
 var margin = {top: 20, right: 20, bottom: 30, left: 80},
     width = 700 - margin.left - margin.right,
-    height = 350 - margin.top - margin.bottom;
+    height = 400 - margin.top - margin.bottom;
 
 var formatPercent = d3.format(".0%");
 
@@ -25,23 +25,13 @@ var yAxis = d3.svg.axis()
     .orient("left")
     .tickFormat(formatPercent);
 
-var tip = d3.tip()
-    .attr('class', 'd3-tip')
-    .direction('n')
-    .offset([-10, 2])
-    .html(function (d) {
-        return "<strong>Precision:</strong> <span style='color:red'>" +
-            d.Precision + "</span>";
-    });
-
 var svg = d3.select("#confusion_matrix")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate(" + 60 + "," + -60 + ")");
 
-svg.call(tip);
 
 
 var task_id = document.getElementById("task_id").value;
@@ -89,15 +79,18 @@ d3.json("/get_json_result/" + task_id, function(error, json_data){
 
         // function to handle histogram.
         function histoGram(fD) {
-            var hG = {}, hGDim = {t: 60, r: 0, b: 30, l: 0};
+            var hG = {}, hGDim = {t: 20, r: 0, b: 30, l: 40};
             hGDim.w = 300 - hGDim.l - hGDim.r,
-                hGDim.h = 300 - hGDim.t - hGDim.b;
+            hGDim.h = 300 - hGDim.t - hGDim.b;
 
             //create svg for histogram.
-            var hGsvg = d3.select(id).append("svg")
+            var hGsvg = svg
+                // d3.select(id)
+                .append("svg")
                 .attr("width", hGDim.w + hGDim.l + hGDim.r)
-                .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
-                .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+                .attr("height",400)
+                .append("g")
+                .attr("transform", "translate(" + 0 + "," + 83 + ")");
 
             // create function for x-axis mapping.
             var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
@@ -206,9 +199,13 @@ d3.json("/get_json_result/" + task_id, function(error, json_data){
             pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
             // create svg for pie chart.
-            var piesvg = d3.select(id).append("svg")
-                .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
-                .attr("transform", "translate(" + pieDim.w / 2 + "," + pieDim.h / 2 + ")");
+            var piesvg = svg
+                // d3.select(id).append("svg")
+                // .attr("width", pieDim.w).attr("height", pieDim.h)
+                // .attr("transform", "translate(" + 100 + "px ," + -300 + "px)")
+                .append("g")
+                // .attr("transform", "translate(" + pieDim.w / 2 + "," + pieDim.h / 2 + ")");
+                .attr("transform", "translate(" + 450 + " ," + 200 + ")")
 
             // create function to draw the arcs of the pie slices.
             var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
@@ -267,13 +264,21 @@ d3.json("/get_json_result/" + task_id, function(error, json_data){
             var leg = {};
 
             // create table for legend.
-            var legend = d3.select(id).append("table").attr('class', 'legend');
+            var legend = 
+                        d3.select(id)
+                        .append("table")
+                        .attr('class', 'legend')
+                        .attr("transform", "translate(" + 550 + " ," + 150 + ")")
+                        ;
 
             // create one row per segment.
             var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
 
             // create the first column for each segment.
-            tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
+            tr.append("td")
+                // .append("svg")
+                // .attr("width", '16').attr("height", '16')
+                .append("rect")
                 .attr("width", '16').attr("height", '16')
                 .attr("fill", function (d) {
                     return segColor(d.type);

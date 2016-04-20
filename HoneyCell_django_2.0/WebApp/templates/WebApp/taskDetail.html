@@ -116,16 +116,25 @@
                         <!-- Morris chart - D3.js -->
                         <div class="chart tab-pane " id="label_detail"
                              style="position: relative; height: 400px;">
-                             <!-- <div id="label_detail_D3"></div> -->
+                             {% if not task.output_file_address %}
+                             <div class="task-running"> Your task is running </div>
+                             {% endif %}
                         </div>
                         <div class="chart tab-pane active" id="label_precision"
                              style="position: relative; height: 400px;">
+
+                             {% if not task.output_file_address %}
+                             <div class="task-running"> Your task is running </div>
+                             {% else %}
                              <label class="label_precision_checkbox"><input type="checkbox" id="precison_sort"> Sort values</label>
-                             <!-- <div id="label_precision_D3"> </div> -->
+                             {% endif %}
                         </div>
                         <div class="chart tab-pane" id="confusion_matrix"
                              style="position: relative; height: 400px;">
-                            <div id="dashboard"></div>
+                            <div id="dashboard" class=""></div>
+                            {% if not task.output_file_address %}
+                            <div class="task-running"> Your task is running </div>
+                            {% endif %}
                         </div>
 
                         <input id='task_id' type="hidden" value="{{ task_id }}"/>
@@ -141,6 +150,9 @@
 
 
 {% block javascript_footer %}
+    
+    <!-- only load when the task has been finished -->
+    {% if task.output_file_address %}
 
     <!-- <script src="{% static "WebApp/js/honeycell_D3/label_detail.js" %}" type="text/javascript"></script> -->
     <script src="{% static "WebApp/js/honeycell_D3/label_detail2.js" %}" type="text/javascript"></script>
@@ -149,8 +161,7 @@
 
     <script src="{% static "WebApp/js/honeycell_D3/interactiveConfusionMatrix.js" %}" type='text/javascript'></script>
 
-
-
+    {% endif %}
 
 {% endblock javascript_footer %}
 

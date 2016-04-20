@@ -107,4 +107,16 @@
     background-color: #3C8DBC; !important
 }
 
+.task-running {
+    padding: 40px;
+    font-size: 35px;
+    text-align: center;
+}
 
+.confusion_matrix_dashboard {
+    float: right;
+    display: block;
+    width: 15%;
+    padding: 10px;
+    transform: translate(-62%,7%);
+}

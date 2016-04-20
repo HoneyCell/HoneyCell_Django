@@ -150,20 +150,20 @@ d3.json("/get_json_result/" + task_id, function(error, apidata) {
 
 
  
-  var legend = svg_detail.selectAll(".legend")
+  var legend_detail = svg_detail.selectAll(".legend_detail")
       .data(categories.concat(["total"]))
       .enter()
       .append("g")
-      .attr("class", "legend")
+      .attr("class", "legend_detail")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-  legend.append("rect")
+  legend_detail.append("rect")
       .attr("x", width_detail-100)
       .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 
-  legend.append("text")
+  legend_detail.append("text")
       .attr("x", width_detail - 70)
       .attr("y", 9)
       .attr("dy", ".35em")
