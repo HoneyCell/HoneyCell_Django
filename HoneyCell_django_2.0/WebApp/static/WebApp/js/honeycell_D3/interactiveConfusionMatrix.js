@@ -33,7 +33,6 @@ var svg = d3.select("#confusion_matrix")
     .attr("transform", "translate(" + 60 + "," + -60 + ")");
 
 
-
 var task_id = document.getElementById("task_id").value;
 
 
@@ -59,7 +58,7 @@ d3.json("/get_json_result/" + task_id, function(error, json_data){
 
 
     // call the dashboard function
-    dashboard('#dashboard', freqData);
+    dashboard('#confusion_matrix', freqData);
 
 
     function dashboard(id, fData) {
@@ -264,8 +263,7 @@ d3.json("/get_json_result/" + task_id, function(error, json_data){
             var leg = {};
 
             // create table for legend.
-            var legend = 
-                        d3.select(id)
+            var legend = d3.select("#dashboard")
                         .append("table")
                         .attr('class', 'legend')
                         .attr("transform", "translate(" + 550 + " ," + 150 + ")")
