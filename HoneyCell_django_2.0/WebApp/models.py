@@ -29,10 +29,10 @@ STATUS_CHOICES = (
 )
 
 ALGORITHM_CHOICES = (
-    (1, 'KNN'),
-    (2, 'Linear regression'),
-    (3, 'Decision tree'),
-    (4, 'Neural network')
+    (1, 'RandomForest'),
+    (2, 'LogisticRegression'),
+    # (3, 'Decision tree'),
+    # (4, 'Neural network')
 )
 
 

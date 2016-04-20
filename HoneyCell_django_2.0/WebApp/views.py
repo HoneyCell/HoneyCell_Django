@@ -795,11 +795,14 @@ def get_json_result(request, task_id):
         try:
             json_data = open(os.path.join(BASE_DIR, json_url))
             data = json_data.read()
-            # print(data)
+            print(data)
             return JsonResponse((data), safe=False)
 
         # file path has problem hard code
         except (OSError, IOError) as e:
+
+            print("Read local JSON file.")
+
             json_url = 'WebApp/static/WebApp/json/honeycomb.json'
             BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             json_data = open(os.path.join(BASE_DIR, json_url))
