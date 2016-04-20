@@ -771,12 +771,10 @@ import csv
 def get_json_result(request, task_id):
 
     print(task_id)
-
     print("in the get_json_result function.")
 
     # try:
     finished_task = Task.objects.get(id = task_id)
-
 
     json_url = ""
 

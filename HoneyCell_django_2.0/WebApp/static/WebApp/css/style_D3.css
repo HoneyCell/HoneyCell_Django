@@ -1,7 +1,7 @@
 
 
 /* D3: label_detail */
-.chart .legend {
+/*.chart .legend {
   fill: black;
   font: 14px sans-serif;
   text-anchor: start;
@@ -35,24 +35,78 @@
   font: 10px sans-serif;
   font-size: 11px;
   color: black;
+}*/
+
+
+
+/* D3: label_detail 2 */
+
+.d3_tip_detail {
+    margin-left: 15px;
+    line-height: 1;
+    font-weight: bold;
+    padding: 5px;
+    background: rgba(255,152,0,0.87);
+    color: #fff;
+    border-radius: 2px;
+}
+
+.axis_label_detail path,
+.axis_label_detail line {
+  fill: none;
+  stroke: lightgrey;
+  shape-rendering: crispEdges;
+}
+
+.detail_bar, .total_bar {
+  shape-rendering: crispEdges;
+}
+
+.detail_bar:hover {
+  opacity: 0.7;
+}
+
+.x.axis_label_detail path {
+  display: none;
 }
 
 
-
-
-/* D3: label precision*/
-.d3-tip {
-        line-height: 1;
-        font-weight: bold;
-        padding: 5px;
-        background: rgba(255,152,0,0.87);
-        color: #fff;
-        border-radius: 2px;
+.total_bar {
+  fill: #DDD;
+  fill-opacity: 0.6;
 }
+
 
 
 
 /* D3: label precision 2*/
+
+
+.d3_tip_precision {
+    line-height: 1;
+    font-weight: bold;
+    padding: 5px;
+    background: rgba(255,152,0,0.87);
+    color: #fff;
+    border-radius: 2px;
+}
+
+.axis_label_precision path,
+.axis_label_precision line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis_label_precision text {
+  font: 10px sans-serif;
+  font-size: 11px;
+  color: black;
+}
+
+.precision_bar:hover {
+  fill: brown;
+}
 
 .precision_bar {
   fill: steelblue;
@@ -63,20 +117,9 @@
   fill: brown;
 }
 
-.x.axis path {
+.x.axis_label_precision path {
   display: none;
 }
-
-.axis text {
-  font-family: sans-serif;
-  font-size: 11px;
-}
-
-/*label {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}*/
 
 .label_precision_checkbox {
   display: block;
