@@ -661,6 +661,8 @@ def update_profile(request):
     request.user.last_name = last_name
     request.user.email = email
 
+    request.user.save()
+
     profile.company = company
     profile.location = location
     profile.website = website
