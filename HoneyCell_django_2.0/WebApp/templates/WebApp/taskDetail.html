@@ -80,6 +80,11 @@
                         <strong><i class="fa fa-map-marker margin-r-5"></i> Created Date </strong>
                         <p class="text-muted text-overflow ">{{ task.task_time_created }}</p>
                         <strong><i class="fa fa-envelope margin-r-5"></i> Status </strong>
+                        {% if task_status == 'Pending' %}
+                            {% elif task_status == '541548' %}
+                            {% elif task_status %}
+                        {% endif %}
+                        
                         <p class="text-muted text-overflow ">{{ task_status }}</p>
                         <strong><i class="fa fa-envelope margin-r-5"></i> Label </strong>
                         <p class="text-muted text-overflow ">{{ task_label }}</p>
@@ -120,10 +125,10 @@
                         </div>
                         <div class="chart tab-pane" id="confusion_matrix"
                              style="position: relative; height: 400px;">
-                             <!-- <div id="confusion_matrix_D3"></div> -->
+                            <div id="dashboard"></div>
                         </div>
 
-                        <input id='task_id' type="hidden" value="{{ task_id }}"></input>
+                        <input id='task_id' type="hidden" value="{{ task_id }}"/>
 
                     </div>
                 </div>
@@ -141,6 +146,8 @@
     <script src="{% static "WebApp/js/honeycell_D3/label_detail2.js" %}" type="text/javascript"></script>
     <!-- <script src="{% static "WebApp/js/honeycell_D3/label_precision.js" %}" type="text/javascript"></script> -->
     <script src="{% static "WebApp/js/honeycell_D3/label_precision_1.js" %}" type="text/javascript"></script>
+
+    <script src="{% static "WebApp/js/honeycell_D3/interactiveConfusionMatrix.js" %}" type='text/javascript'></script>
 
 
 

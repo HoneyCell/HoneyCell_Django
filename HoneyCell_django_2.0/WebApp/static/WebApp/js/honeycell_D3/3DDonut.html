@@ -24,7 +24,9 @@
 
 </style>
 <body>
-<button onClick="changeData()">Change Data</button>
+
+<!-- <button onClick="changeData()">Change Data</button> -->
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="Donut3D.js"></script>
 <script>
@@ -51,10 +53,12 @@
     Donut3D.draw("salesDonut", randomData(), 150, 150, 130, 100, 30, 0.4);
     Donut3D.draw("quotesDonut", randomData2(), 450, 150, 130, 100, 30, 0);
 
-    function changeData(){
-        Donut3D.transition("salesDonut", randomData(), 130, 100, 30, 0.4);
-        Donut3D.transition("quotesDonut", randomData(), 130, 100, 30, 0);
-    }
+    <!--
+        function changeData(){
+            Donut3D.transition("salesDonut", randomData(), 130, 100, 30, 0.4);
+            Donut3D.transition("quotesDonut", randomData(), 130, 100, 30, 0);
+        }
+    -->
 
     function randomData(){
 

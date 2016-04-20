@@ -56,6 +56,7 @@ d3.json("/get_json_result/" + task_id, function(error, json_data) {
 
   for (var i = 0; i < label_num; i++) {
       data[i] = {Labels: i, Precision: json_data.Labels[i].Precision};
+    console.log(data[i]);
   }
 
   // console.log(data);

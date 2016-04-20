@@ -51,69 +51,113 @@
 {% block content_area %}
     <section class="content content-top">
         <div class="row">
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                </div>
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <div class="box box-primary">
-
-                {% for follower in followers %}
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="box box-widget widget-user-2">
-                        <div class="followship-header">
-                            <div class="widget-user-image">
-                                {% if follower.following.profile.image %}
-                                    <img class="img-circle" src="{% url "get_user_picture" follower.following.id %}"
-                                         alt="User Avatar">
-                                {% else %}
-                                    <img class="img-circle" src="{% static "WebApp/img/anonymous_user.jpg" %}"
-                                         alt="User Avatar">
-                                {% endif %}
-                            </div>
-                            <h3 class="widget-user-username"><a href="{% url 'other_profile' follower.following.id %}">{{ follower.following.username }}</a></h3>
-
-                            {% if follower.following.first_name %}
-                             <h5 class="widget-user-desc"><strong> Name: </strong>{{ follower.following.first_name }} {{ follower.following.last_name }}</h5>
-                            {% endif %}
-
-                            {% if follower.following.email %}
-                            <h5 class="widget-user-desc"><strong>Email: </strong>{{ follower.following.email }}</h5>
-                            {% endif %}
-
-                            {% if follower.following.profile.company %}
-                            <h5 class="widget-user-desc"><strong> Company: </strong>{{ follower.following.profile.company }}</h5>
-                            {% endif %}
-
-                            {% if follower.following.profile.location %}
-                            <h5 class="widget-user-desc"><strong>Location: </strong>{{ follower.following.profile.location }}</h5>
-                            {% endif %}
-
-                            {% if follower.following.profile.website %}
-                            <h5 class="widget-user-desc"><strong>Website: </strong>{{ follower.following.profile.website }}</h5>
-                            {% endif %}
-
-                            {% if follower.following.profile.short_introduction %}
-                            <h5 class="widget-user-desc"><strong>Introduction: </strong>{{ follower.following.short_introduction }}</h5>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                <br>
-            {% endfor %}
-
-            <div class="box-footer clearfix">
-                <ul class="pagination pagination-sm no-margin pull-right">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
-            </div>
-            </div> <!-- box -->
-            </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             </div>
-        </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="box box-primary">
+
+                    {% for follower in followers %}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="box box-widget widget-user-2">
+                                <div class="followship-header">
+                                    <div class="widget-user-image">
+                                        {% if follower.following.profile.image %}
+                                            <img class="img-circle"
+                                                 src="{% url "get_user_picture" follower.following.id %}"
+                                                 alt="User Avatar">
+                                        {% else %}
+                                            <img class="img-circle" src="{% static "WebApp/img/anonymous_user.jpg" %}"
+                                                 alt="User Avatar">
+                                        {% endif %}
+                                    </div>
+                                    <h3 class="widget-user-username"><a
+                                            href="{% url 'other_profile' follower.following.id %}">{{ follower.following.username }}</a>
+                                    </h3>
+
+                                    {% if follower.following.first_name %}
+                                        <h5 class="widget-user-desc"><strong>
+                                            Name: </strong>{{ follower.following.first_name }} {{ follower.following.last_name }}
+                                        </h5>
+                                    {% endif %}
+
+                                    {% if follower.following.email %}
+                                        <h5 class="widget-user-desc">
+                                            <strong>Email: </strong>{{ follower.following.email }}</h5>
+                                    {% endif %}
+
+                                    {% if follower.following.profile.company %}
+                                        <h5 class="widget-user-desc"><strong>
+                                            Company: </strong>{{ follower.following.profile.company }}</h5>
+                                    {% endif %}
+
+                                    {% if follower.following.profile.location %}
+                                        <h5 class="widget-user-desc">
+                                            <strong>Location: </strong>{{ follower.following.profile.location }}</h5>
+                                    {% endif %}
+
+                                    {% if follower.following.profile.website %}
+                                        <h5 class="widget-user-desc">
+                                            <strong>Website: </strong>{{ follower.following.profile.website }}</h5>
+                                    {% endif %}
+
+                                    {% if follower.following.profile.short_introduction %}
+                                        <h5 class="widget-user-desc">
+                                            <strong>Introduction: </strong>{{ follower.following.short_introduction }}
+                                        </h5>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                    {% empty %}
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        </div>
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <div class="box box-primary">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="box box-widget widget-user-2">
+                                <h1 align="center">Currently, there is no follower.</h1>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                    <div class="box-footer clearfix">
+                        {% if empty %}
+                            <!-- if empty, no pagination to show -->
+                        {% else %}
+                            <ul class="pagination pagination-sm no-margin pull-right">
+                                {% if followers.has_previous %}
+                                    <li><a href="?page={{ followers.previous_page_number }}">&laquo;</a></li>
+                                {% else %}
+                                    <li><a href="">&laquo;</a></li>
+                                {% endif %}
+
+                                {% for num in followers.paginator.page_range %}
+                                    {% ifequal num followers.number %}
+                                        <li class="current"><a href="#"><b>{{ num }}</b></a></li>
+                                    {% else %}
+                                        <li><a href="?page={{ num }}"> {{ num }}</a></li>
+                                    {% endifequal %}
+                                {% endfor %}
+
+                                {% if followers.has_next %}
+                                    <li><a href="?page={{ followers.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                    <li><a href="#">&raquo;</a></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </div>
+
+
+                    </div> <!-- box -->
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    </div>
+                </div>
     </section>
 
 {% endblock content_area %}
