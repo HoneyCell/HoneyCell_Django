@@ -389,7 +389,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="{% url 'other_profile' followers_activity.activity.user.id %}">{{ followers_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followers_activity.user.id %}">{{ followers_activity.user }}</a>
                                       <a href='#'
                                          class='pull-right btn-box-tool'>{{ followers_activity.user.first_name }} {{ followers_activity.user.last_name }}</a>
                                     </span>
