@@ -217,7 +217,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -278,7 +278,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="#">{{ followings_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followings_activity.user.id %}">{{ followings_activity.user }}</a>
                                       <a href='#' class='pull-right btn-box-tool'>
                                           {{ followings_activity.user.first_name }}
                                           {{ followings_activity.user.last_name }}
@@ -330,7 +330,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -389,7 +389,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="#">{{ followers_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followers_activity.activity.user.id %}">{{ followers_activity.user }}</a>
                                       <a href='#'
                                          class='pull-right btn-box-tool'>{{ followers_activity.user.first_name }} {{ followers_activity.user.last_name }}</a>
                                     </span>
@@ -440,7 +440,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -521,7 +521,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                              <a href="#">{{ user }}</a>
+                                              <a href="{% url 'other_profile' user.id %}">{{ user }}</a>
                                               <a href='#'
                                                  class='pull-right btn-box-tool'>{{ user.first_name }} {{ user.last_name }}</a>
                                             </span>
@@ -569,7 +569,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -630,7 +630,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="#">{{ followings_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followings_activity.user.id %}">{{ followings_activity.user }}</a>
                                       <a href='#' class='pull-right btn-box-tool'>
                                           {{ followings_activity.user.first_name }}
                                           {{ followings_activity.user.last_name }}
@@ -682,7 +682,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -762,7 +762,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="#">{{ followers_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followers_activity.user.id %}">{{ followers_activity.user }}</a>
                                       <a href='#'
                                          class='pull-right btn-box-tool'>{{ followers_activity.user.first_name }} {{ followers_activity.user.last_name }}</a>
                                     </span>
@@ -813,7 +813,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -941,7 +941,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -1001,7 +1001,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="#">{{ followings_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followings_activity.user.id %}">{{ followings_activity.user }}</a>
                                       <a href='#' class='pull-right btn-box-tool'>
                                           {{ followings_activity.user.first_name }}
                                           {{ followings_activity.user.last_name }}
@@ -1053,7 +1053,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
@@ -1114,7 +1114,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="#">{{ followers_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followers_activity.user %}">{{ followers_activity.user }}</a>
                                       <a href='#'
                                          class='pull-right btn-box-tool'>{{ followers_activity.user.first_name }} {{ followers_activity.user.last_name }}</a>
                                     </span>
@@ -1165,7 +1165,7 @@
                                                             <div class='comment-text'>
 
                                                         <span class="username">
-                                                            <a href=""><b>{{ comment.user }}</b></a>
+                                                            <a href="{% url 'other_profile' comment.user.id %}"><b>{{ comment.user }}</b></a>
                                                             <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                                         </span>
                                                                 <p class="comment-style">{{ comment.text }}</p>
