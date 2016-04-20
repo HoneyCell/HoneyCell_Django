@@ -274,8 +274,8 @@ d3.json("/get_json_result/" + task_id, function(error, json_data){
 
             // create the first column for each segment.
             tr.append("td")
-                // .append("svg")
-                // .attr("width", '16').attr("height", '16')
+                .append("svg")
+                .attr("width", '16').attr("height", '16')
                 .append("rect")
                 .attr("width", '16').attr("height", '16')
                 .attr("fill", function (d) {
