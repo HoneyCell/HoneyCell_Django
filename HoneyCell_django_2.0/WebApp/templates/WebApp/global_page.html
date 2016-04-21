@@ -62,7 +62,7 @@
                                 {% else %}
                                     <img class='img-circle' src='{% static 'WebApp/img/anonymous_user.jpg' %}' alt='user image'>
                                 {% endif %}
-                                <span class='username'><a href="{% url 'other_profile' activity.user.id %}">{{ activity.user.username }}</a></span>
+                                <span class='username'><a href="{% url 'all_profile' activity.user.id %}">{{ activity.user.username }}</a></span>
                                 <span class='description'>{{ activity.time_created }}</span>
                             </div>
                             <div class='box-tools'>
@@ -98,7 +98,7 @@
                                     {% endif %}
                                     <div class='comment-text'>
                                         <span class="username">
-                                          <a href="{% url 'other_profile' comment.user.id %}">{{ comment.user }}</a>
+                                          <a href="{% url 'all_profile' comment.user.id %}">{{ comment.user }}</a>
                                           <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                         </span><!-- /.username -->
                                         <p class="comment-style">{{ comment.text }}</p>

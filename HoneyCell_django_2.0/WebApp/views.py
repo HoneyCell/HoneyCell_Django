@@ -856,7 +856,18 @@ def get_json_result(request, task_id):
 
             print("Read local JSON file.")
 
-            json_url = 'WebApp/static/WebApp/json/honeycomb.json'
+
+            algorithm_string = ALGORITHM_CHOICES[finished_task.task_algorithm][1]
+
+            if algorithm_string == "RandomForest":
+                # get local json result file for RandomForest algorithm
+                json_url = 'WebApp/static/WebApp/json/RandomForest.json'
+            else:
+                # get local json result file for LogisticRegression algorithm
+                json_url = 'WebApp/static/WebApp/json/LogisticRegression.json'
+
+
+
             BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             json_data = open(os.path.join(BASE_DIR, json_url))
             data = json_data.read()

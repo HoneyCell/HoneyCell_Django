@@ -81,7 +81,7 @@ class Migration(migrations.Migration):
                 ('task_description', models.TextField(max_length=1000, null=True, blank=True)),
                 ('task_label', models.IntegerField(default=1, choices=[(1, 'None'), (2, 'Important'), (3, 'Warning'), (4, 'Information')])),
                 ('task_status', models.IntegerField(default=1, choices=[(1, 'Pending'), (2, 'Completed'), (3, 'Denied')])),
-                ('task_algorithm', models.IntegerField(default=1, choices=[(1, 'KNN'), (2, 'Linear regression'), (3, 'Decision tree'), (4, 'Neural network')])),
+                ('task_algorithm', models.IntegerField(default=1, choices=[(1, 'RandomForest'), (2, 'LogisticRegression')])),
                 ('training_docfile', models.FileField(upload_to=WebApp.models.generate_training_filename)),
                 ('testing_docfile', models.FileField(upload_to=WebApp.models.generate_testing_filename)),
                 ('task_time_created', models.DateTimeField(auto_now_add=True)),
