@@ -446,6 +446,7 @@ def create_new_task(request):
     address_prefix = '/home/honeycomb/DEMODAY/honeycell/HoneyCell_Django/HoneyCell_django_2.0/media/documents/' + str(context['user']) + '/' + str(context['task_folder'])
     tranining_address = address_prefix+'/trainings/'+str(training_docfile)
     testing_address = address_prefix+'/testings/'+str(testing_docfile)
+    algorithm_chosen = ALGORITHM_CHOICES[new_task_instance.task_algorithm - 1][1]
 
     print ('')
     print ('preparing to send task creation request to honey')
@@ -454,13 +455,14 @@ def create_new_task(request):
     print ('training data address: ' + tranining_address)
     print ('testing data address: ' + testing_address)
     print ('sending task creation request to: ' + backend_url)
+    print ('algorithm choose is :' + algorithm_chosen)
     print ('')
 
     
     print ('sending task creation request to: ' + backend_url)
     print ('')
 
-    my_json = {'task_id':new_task_instance.id, 'train_address': tranining_address, 'test_address': testing_address}
+    my_json = {'task_id':new_task_instance.id, 'train_address': tranining_address, 'test_address': testing_address, 'algorithm': algorithm_chosen}
 
     # create a new thread to request for HoneyComb
     new_thread = threading.Thread(target = new_thread_for_new_task, kwargs={'my_json': my_json})
