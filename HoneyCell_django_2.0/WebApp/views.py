@@ -1556,7 +1556,7 @@ def task_finished(request):
 
 
 
-
+@csrf_exempt
 def task_finished_ajax_check_database(request):
     context = {}
     messageString = ""
@@ -1569,40 +1569,43 @@ def task_finished_ajax_check_database(request):
         context['user'] = request.user
         curr_user = request.user
 
-    try:
-        completed_tasks = Pending2CompletedTask.objects.filter(user=curr_user)
-        # print("completed_tasks: ")
-        # print(completed_tasks)
+        try:
+            completed_tasks = Pending2CompletedTask.objects.filter(user=curr_user)
+            # print("completed_tasks: ")
+            # print(completed_tasks)
 
-        # no task completed for this user
-        if not completed_tasks:
+            # no task completed for this user
+            if not completed_tasks:
+                return HttpResponse(messageString)
+
+            # detect task complete flag
+            for t in completed_tasks:
+                # temp = '<h2> Your task <a href=" {% ' 
+                # temp += "url " + "'taskDetail'"
+                # temp += " %d " %(t.task.id)
+                # temp += ' %}"' + '> %s </a> has been completed. <h2> \n' %(t.task.task_name)
+                temp = '<h2> Your task "' 
+                temp += '%s" has been completed. <h2> \n' %(t.task.task_name)
+                messageString += temp
+
+            print("messageString: \n %s") %(messageString)
+
+
+            # delete completed task in Pending2CompletedTask
+            for t in completed_tasks:
+                t.delete()
+
+            print("completed_tasks has been deleted")
+
             return HttpResponse(messageString)
 
-        # detect task complete flag
-        for t in completed_tasks:
-            # temp = '<h2> Your task <a href=" {% ' 
-            # temp += "url " + "'taskDetail'"
-            # temp += " %d " %(t.task.id)
-            # temp += ' %}"' + '> %s </a> has been completed. <h2> \n' %(t.task.task_name)
-            temp = '<h2> Your task "' 
-            temp += '%s" has been completed. <h2> \n' %(t.task.task_name)
-            messageString += temp
+        except ObjectDoesNotExist:
+          context['errors'] = ["task_finished_popup fail"]
 
-        print("messageString: \n %s") %(messageString)
-
-
-        # delete completed task in Pending2CompletedTask
-        for t in completed_tasks:
-            t.delete()
-
-        print("completed_tasks has been deleted")
-
-        return HttpResponse(messageString)
-
-    except ObjectDoesNotExist:
-      context['errors'] = ["task_finished_popup fail"]
-
-    return HttpResponse()
+    # no user
+    else:
+        print("no user request")
+        return HttpResponse()
 
 
 
