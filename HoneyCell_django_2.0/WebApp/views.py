@@ -75,7 +75,12 @@ def registration(request):
 
 
     # add activity description
-    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" + str(new_user.id) + "'>" + new_user.username + "</a>" + " register an account."
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(new_user.id) \
+                                        + "'>" \
+                                        + new_user.username \
+                                        + "</a>"\
+                                        + " register an account."
     new_activity_instance.save()
 
     # create Profile object for the user
@@ -437,7 +442,22 @@ def create_new_task(request):
     new_activity_instance = Activity(user=request.user,
                                      task=new_task_instance,
                                      )
-    new_activity_instance.description = request.user.username + "Create a new task name: " + new_task_instance.task_name
+
+
+
+
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>" \
+                                        + "create a new task " \
+                                        + "<a href='http://127.0.0.1:8000/taskDetail/" \
+                                        + str(new_task_instance.id) \
+                                        + "'>" \
+                                        + new_task_instance.task_name \
+                                        + ".</a>"
+
     new_activity_instance.save()
     print("Already save new_activity_instance.")
 
@@ -448,7 +468,6 @@ def create_new_task(request):
     testing_address = address_prefix+'/testings/'+str(testing_docfile)
     algorithm_chosen = ALGORITHM_CHOICES[new_task_instance.task_algorithm - 1][1]
 
-    print ('')
     print ('preparing to send task creation request to honey')
     print ('user: ' + str(context['user']))
     print ('task_id: ' + str(new_task_instance.id))
@@ -587,7 +606,16 @@ def follow(request, user_id):
     print("Already save new_followship_instance.")
 
     new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = "User: " + request.user.username + " follow user: " + other_user.username
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>" \
+                                        + " follow "\
+                                        + "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(other_user.id) + "'>"\
+                                        + other_user.username\
+                                        + ".</a>"
     new_activity_instance.save()
 
 
@@ -613,7 +641,16 @@ def unfollow(request, user_id):
     print("The Followship object already delete.")
 
     new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = "User: " + request.user.username + " unfollow user: " + other_user.username
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>" \
+                                        + " follow "\
+                                        + "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(other_user.id) + "'>"\
+                                        + other_user.username\
+                                        + ".</a>"
     new_activity_instance.save()
 
 
@@ -678,7 +715,12 @@ def update_profile(request):
     print("Already update the profile.")
 
     new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " update the profile."
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>" \
+                                        + " update the profile."
     new_activity_instance.save()
 
 
@@ -720,7 +762,12 @@ def change_password(request):
         print("Already reset the password.")
 
         new_activity_instance = Activity(user=request.user)
-        new_activity_instance.description = request.user.username + " change the password."
+        new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                            + str(request.user.id) \
+                                            + "'>" \
+                                            + request.user.username\
+                                            + "</a>" \
+                                            + " change the password."
         new_activity_instance.save()
 
         user = authenticate(username = user.username,
@@ -896,7 +943,17 @@ def new_folder(request):
     print("Already save the new_folder_instance.")
 
     new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " create a new folder."
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>"\
+                                        + " create a new folder " \
+                                        + "<a href='http://127.0.0.1:8000/fileManage_tasks/" \
+                                        + str(new_folder_instance.id) \
+                                        + "'>" \
+                                        + new_folder_instance.folder_name \
+                                        + "</a>."
     new_activity_instance.save()
 
 
@@ -919,6 +976,8 @@ def update_folder(request, folder_id):
 
     folder = Folder.objects.get(id=folder_id)
 
+    old_folder_name = folder.folder_name
+
     folder_name = request.POST['folder_name']
     # folder_description = request.POST['folder_description']
 
@@ -935,7 +994,21 @@ def update_folder(request, folder_id):
     print("Already update folder's information")
 
     new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " change folder name to " + folder.folder_name + "."
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>" \
+                                        + " change folder name from"\
+                                        + "<i>" \
+                                        + old_folder_name \
+                                        + "</i>"\
+                                        + " to "\
+                                        + "<a href='http://127.0.0.1:8000/fileManage_tasks/" \
+                                        + str(folder.id) \
+                                        + "'>" \
+                                        + folder.folder_name \
+                                        + "</a>."
     new_activity_instance.save()
 
 
@@ -967,7 +1040,15 @@ def delete_folder(request, folder_id):
     print("Successfully delete the folder.")
 
     new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " delete folder " + folder_name + "."
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>" \
+                                        + " delete folder "\
+                                        + "<i>"\
+                                        + folder_name\
+                                        + "</i>."
     new_activity_instance.save()
 
 
@@ -1330,9 +1411,22 @@ def add_comment(request, activity_id):
     new_comment_instance.save()
     print("Successfully save new_comment_instance.")
 
-    new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " add a comment to " + activity.description + "."
-    new_activity_instance.save()
+
+    # if the comment target activity has task, we add into activities
+    if new_comment_instance.activity.task:
+        new_activity_instance = Activity(user=request.user)
+        new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                            + str(request.user.id) \
+                                            + "'>" \
+                                            + request.user.username\
+                                            + "</a>" \
+                                            + " add a comment to " \
+                                            + "<a href='http://127.0.0.1:8000/taskDetail/" \
+                                            + str(new_comment_instance.activity.task.id) \
+                                            + "'>" \
+                                            + new_comment_instance.activity.task.task_name \
+                                            + "</a>."
+        new_activity_instance.save()
 
 
 
@@ -1571,9 +1665,21 @@ def profile_add_comment(request, activity_id):
     new_comment_instance.save()
     print("Successfully save new_comment_instance.")
 
-    new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " add a comment to " + activity.description + "."
-    new_activity_instance.save()
+    # if the comment target activity has task, we add into activities
+    if new_comment_instance.activity.task:
+        new_activity_instance = Activity(user=request.user)
+        new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                            + str(request.user.id) \
+                                            + "'>" \
+                                            + request.user.username\
+                                            + "</a>" \
+                                            + " add a comment to " \
+                                            + "<a href='http://127.0.0.1:8000/taskDetail/" \
+                                            + str(new_comment_instance.activity.task.id) \
+                                            + "'>" \
+                                            + new_comment_instance.activity.task.task_name \
+                                            + "</a>."
+        new_activity_instance.save()
 
 
     return HttpResponseRedirect(reverse('profile_comment', kwargs={'recent_tab': context['recent_tab']}))
@@ -1653,9 +1759,20 @@ def other_profile_add_comment(request, activity_id):
     new_comment_instance.save()
     print("Successfully save new_comment_instance.")
 
-    new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " add a comment to " + activity.description + "."
-    new_activity_instance.save()
+    if new_comment_instance.activity.task:
+        new_activity_instance = Activity(user=request.user)
+        new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                            + str(request.user.id) \
+                                            + "'>" \
+                                            + request.user.username\
+                                            + "</a>" \
+                                            + " add a comment to " \
+                                            + "<a href='http://127.0.0.1:8000/taskDetail/" \
+                                            + str(new_comment_instance.activity.task.id) \
+                                            + "'>" \
+                                            + new_comment_instance.activity.task.task_name \
+                                            + "</a>."
+        new_activity_instance.save()
 
 
     return HttpResponseRedirect(reverse('other_profile_comment', kwargs={'user_id': other_user_id}))
