@@ -13,8 +13,6 @@ class Folder(models.Model):
     folder_time_changed = models.DateTimeField(auto_now=True)
 
 
-
-
 LABEL_CHOICES = (
     (1, 'None'),
     (2, 'Important'),
@@ -34,9 +32,6 @@ ALGORITHM_CHOICES = (
     # (3, 'Decision tree'),
     # (4, 'Neural network')
 )
-
-
-
 
 
 def generate_training_filename(self, filename):
