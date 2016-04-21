@@ -19,7 +19,7 @@ def main():
 	# POST request
 	# error: 0 - success, 1 - error
 	URL = 'http://127.0.0.1:8000/task_finished/' 
-	post_data = {'error': '0', 'task_id': '9', 'result_address': 'aaa/bbb/ccc'}
+	post_data = {'error': '0', 'task_id': '1', 'result_address': 'aaa/bbb/ccc'}
 	response = requests.post(URL, data=post_data)
 	print(response.content)
 
