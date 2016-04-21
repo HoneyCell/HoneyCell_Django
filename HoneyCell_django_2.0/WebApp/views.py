@@ -852,6 +852,9 @@ def get_json_result(request, task_id):
         try:
             json_data = open(os.path.join(BASE_DIR, json_url))
             data = json_data.read()
+
+            print("Read JSON file from database.")
+
             print(data)
             return JsonResponse((data), safe=False)
 
