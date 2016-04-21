@@ -28,7 +28,7 @@
         </ul>
     </li>
     <li>
-        <a href="{% url 'fileManage'%}"><i class="fa fa-folder"></i> <span>File Management </span></a>
+        <a href="{% url 'fileManage' %}"><i class="fa fa-folder"></i> <span>File Management </span></a>
     </li>
     <li class="active">
         <a href="{% url 'profile' %}"><i class="fa fa-th"></i> <span>Profile</span></a>
@@ -178,7 +178,9 @@
 
 
                                             <div class='box-body'>
-                                                <p>{{ my_activity.description }}</p>
+                                                {% autoescape off %}
+                                                    {{ my_activity.description }}
+                                                {% endautoescape %}
 
                                                 {% if my_activity.task %}
                                                     <div class="attachment-block clearfix">
@@ -291,7 +293,9 @@
 
 
                                             <div class='box-body'>
-                                                <p>{{ followings_activity.description }}</p>
+                                                {% autoescape off %}
+                                                    {{ followings_activity.description }}
+                                                {% endautoescape %}
 
                                                 {% if followings_activity.task %}
                                                     <div class="attachment-block clearfix">
@@ -398,9 +402,9 @@
 
 
                                             <div class='box-body'>
-
-
-                                                <p>{{ followers_activity.description }}</p>
+                                                {% autoescape off %}
+                                                    {{ followers_activity.description }}
+                                                {% endautoescape %}
 
                                                 {% if followers_activity.task %}
                                                     <div class="attachment-block clearfix">
@@ -530,7 +534,9 @@
 
 
                                             <div class='box-body'>
-                                                <p>{{ my_activity.description }}</p>
+                                                {% autoescape off %}
+                                                    {{ my_activity.description }}
+                                                {% endautoescape %}
 
                                                 {% if my_activity.task %}
                                                     <div class="attachment-block clearfix">
@@ -643,8 +649,11 @@
 
 
                                             <div class='box-body'>
-                                                <p>{{ followings_activity.description }}</p>
 
+                                                {% autoescape off %}
+                                                    {{ followings_activity.description }}
+                                                {% endautoescape %}
+                                            
                                                 {% if followings_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -772,9 +781,10 @@
 
                                             <div class='box-body'>
 
-
-                                                <p>{{ followers_activity.description }}</p>
-
+                                                {% autoescape off %}
+                                                    {{ followers_activity.description }}
+                                                {% endautoescape %}
+                                            
                                                 {% if followers_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -902,8 +912,11 @@
 
 
                                             <div class='box-body'>
-                                                <p>{{ my_activity.description }}</p>
-
+                                            
+                                                {% autoescape off %}
+                                                    {{ my_activity.description }}
+                                                {% endautoescape %}
+                                            
                                                 {% if my_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -1014,8 +1027,11 @@
 
 
                                             <div class='box-body'>
-                                                <p>{{ followings_activity.description }}</p>
-
+                                            
+                                                {% autoescape off %}
+                                                    {{ followings_activity.description }}
+                                                {% endautoescape %}
+                                            
                                                 {% if followings_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -1124,8 +1140,9 @@
 
                                             <div class='box-body'>
 
-
-                                                <p>{{ followers_activity.description }}</p>
+                                                {% autoescape off %}
+                                                    {{ followers_activity.description }}
+                                                {% endautoescape %}
 
                                                 {% if followers_activity.task %}
                                                     <div class="attachment-block clearfix">

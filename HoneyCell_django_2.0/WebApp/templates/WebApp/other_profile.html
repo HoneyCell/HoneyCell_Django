@@ -175,7 +175,9 @@
                                     </div>
 
                                     <div class='box-body'>
-                                        <p>{{ other_activity.description }}</p>
+                                        {% autoescape off %}
+                                            {{ other_activity.description }}
+                                        {% endautoescape %}
 
                                         {% if other_activity.task %}
                                             <!-- Attachment -->
@@ -205,13 +207,18 @@
                                                 {% for comment in other_activity.comment_set.all %}
                                                     <!-- User image -->
                                                     {% if comment.user.profile.image %}
-                                                        <img class='img-circle img-sm' src='{% url 'get_user_picture' comment.user.id %}' alt='user image'>
+                                                        <img class='img-circle img-sm'
+                                                             src='{% url 'get_user_picture' comment.user.id %}'
+                                                             alt='user image'>
                                                     {% else %}
-                                                        <img class='img-circle img-sm' src='{% static 'WebApp/img/anonymous_user.jpg' %}' alt='user image'>
+                                                        <img class='img-circle img-sm'
+                                                             src='{% static 'WebApp/img/anonymous_user.jpg' %}'
+                                                             alt='user image'>
                                                     {% endif %}
                                                     <div class='comment-text'>
                                                         <span class="username">
-                                                            <a>{{ comment.user }}</a><span class='text-muted pull-right'>{{ comment.time_created }}</span></span>
+                                                            <a>{{ comment.user }}</a><span
+                                                                class='text-muted pull-right'>{{ comment.time_created }}</span></span>
                                                         <p class="comment-style">{{ comment.text }}</p>
                                                     </div>
                                                     <hr>
@@ -224,14 +231,17 @@
 
                                     <br>
 
-                                    <form action="{% url 'other_profile_add_comment' other_activity.id %}" method="POST" class='form-horizontal'>{% csrf_token %}
+                                    <form action="{% url 'other_profile_add_comment' other_activity.id %}" method="POST"
+                                          class='form-horizontal'>{% csrf_token %}
                                         <input type="hidden" name="other_user_id" value="{{ other_user.id }}">
                                         <div class='form-group margin-bottom-none'>
                                             <div class='col-sm-9'>
-                                                <input name="comment_text" class="form-control input-sm" placeholder="Comments">
+                                                <input name="comment_text" class="form-control input-sm"
+                                                       placeholder="Comments">
                                             </div>
                                             <div class='col-sm-3'>
-                                                <button type="submit" class='btn btn-primary pull-right btn-block btn-sm'>Send
+                                                <button type="submit"
+                                                        class='btn btn-primary pull-right btn-block btn-sm'>Send
                                                 </button>
                                             </div>
                                         </div>

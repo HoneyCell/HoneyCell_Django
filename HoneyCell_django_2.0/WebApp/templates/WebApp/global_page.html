@@ -70,7 +70,7 @@
                         </div>
                         <div class='box-body'>
                         {% autoescape off %}
-                            <p>{{ activity.description }}
+                            {{ activity.description }}
                         {% endautoescape %}
 
                             {% if activity.task.task_name %}
