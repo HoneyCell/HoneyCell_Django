@@ -456,7 +456,7 @@ def create_new_task(request):
     print ('sending task creation request to: ' + backend_url)
     print ('')
 
-    my_json = {'task_id':new_task_instance.id, 'train_address': tranining_address, 'test_address': testing_address}
+    my_json = {'task_id':new_task_instance.id, 'train_address': tranining_address, 'test_address': testing_address, 'algorithm': new_task_instance.task_algorithm}
 
     # create a new thread to request for HoneyComb
     new_thread = threading.Thread(target = new_thread_for_new_task, kwargs={'my_json': my_json})
