@@ -1561,9 +1561,13 @@ def task_finished_ajax_check_database(request):
     context = {}
     messageString = ""
 
+    print("in task_finished_ajax_check_database")
+
     if request.user:
-      context['user'] = request.user
-      curr_user = request.user
+        print("request.user exist")
+        print(request.user)
+        context['user'] = request.user
+        curr_user = request.user
 
     try:
         completed_tasks = Pending2CompletedTask.objects.filter(user=curr_user)

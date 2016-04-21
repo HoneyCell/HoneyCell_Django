@@ -55,7 +55,6 @@ function task_finished_popup() {
 	$.ajax({
 		url: "/task_finished_ajax_check_database/",
 
-
 		success: function(messageString) {
 			console.log("Success");
 			// console.log(completed_tasks.task_name);
@@ -66,9 +65,6 @@ function task_finished_popup() {
 		    	$("#task_completed_modal_body").append(messageString);
 			}
 
-			
-
-	    	
 		}
 	});
 
