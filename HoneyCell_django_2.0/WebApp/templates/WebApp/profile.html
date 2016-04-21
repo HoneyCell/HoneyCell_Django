@@ -182,19 +182,19 @@
                                                     {{ my_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if my_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' my_activity.task.id %}">
-                                                            {{ my_activity.task.task_name }}
-                                                        </a></h4>
-                                                        <div class="attachment-text">
-                                                            {{ my_activity.task.task_description }}
-                                                        </div><!-- /.attachment-text -->
-                                                    </div><!-- /.attachment-block -->
-                                                {% else %}
-                                                    <!-- This activity do not have task, blank -->
-                                                {% endif %}
+{#                                                {% if my_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' my_activity.task.id %}">#}
+{#                                                            {{ my_activity.task.task_name }}#}
+{#                                                        </a></h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ my_activity.task.task_description }}#}
+{#                                                        </div><!-- /.attachment-text -->#}
+{#                                                    </div><!-- /.attachment-block -->#}
+{#                                                {% else %}#}
+{#                                                    <!-- This activity do not have task, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ my_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -301,18 +301,18 @@
                                                     {{ followings_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if followings_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' followings_activity.task.id %}">{{ followings_activity.task.task_name }}</a>
-                                                        </h4>
-                                                        <div class="attachment-text">
-                                                            {{ followings_activity.task.task_description }}
-                                                        </div>
-                                                    </div>
-                                                {% else %}
-                                                    <!-- No task for this activity, blank -->
-                                                {% endif %}
+{#                                                {% if followings_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' followings_activity.task.id %}">{{ followings_activity.task.task_name }}</a>#}
+{#                                                        </h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ followings_activity.task.task_description }}#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                {% else %}#}
+{#                                                    <!-- No task for this activity, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ followings_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -410,19 +410,19 @@
                                                     {{ followers_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if followers_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' followers_activity.task.id %}">
-                                                            {{ followers_activity.task.task_name }}
-                                                        </a></h4>
-                                                        <div class="attachment-text">
-                                                            {{ followers_activity.task.task_description }}
-                                                        </div>
-                                                    </div>
-                                                {% else %}
-                                                    <!-- No task for this activity, blank -->
-                                                {% endif %}
+{#                                                {% if followers_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' followers_activity.task.id %}">#}
+{#                                                            {{ followers_activity.task.task_name }}#}
+{#                                                        </a></h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ followers_activity.task.task_description }}#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                {% else %}#}
+{#                                                    <!-- No task for this activity, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ followers_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -542,19 +542,19 @@
                                                     {{ my_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if my_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' my_activity.task.id %}">
-                                                            {{ my_activity.task.task_name }}
-                                                        </a></h4>
-                                                        <div class="attachment-text">
-                                                            {{ my_activity.task.task_description }}
-                                                        </div><!-- /.attachment-text -->
-                                                    </div><!-- /.attachment-block -->
-                                                {% else %}
-                                                    <!-- This activity do not have task, blank -->
-                                                {% endif %}
+{#                                                {% if my_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' my_activity.task.id %}">#}
+{#                                                            {{ my_activity.task.task_name }}#}
+{#                                                        </a></h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ my_activity.task.task_description }}#}
+{#                                                        </div><!-- /.attachment-text -->#}
+{#                                                    </div><!-- /.attachment-block -->#}
+{#                                                {% else %}#}
+{#                                                    <!-- This activity do not have task, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ my_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -658,18 +658,18 @@
                                                     {{ followings_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if followings_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' followings_activity.task.id %}">{{ followings_activity.task.task_name }}</a>
-                                                        </h4>
-                                                        <div class="attachment-text">
-                                                            {{ followings_activity.task.task_description }}
-                                                        </div>
-                                                    </div>
-                                                {% else %}
-                                                    <!-- No task for this activity, blank -->
-                                                {% endif %}
+{#                                                {% if followings_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' followings_activity.task.id %}">{{ followings_activity.task.task_name }}</a>#}
+{#                                                        </h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ followings_activity.task.task_description }}#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                {% else %}#}
+{#                                                    <!-- No task for this activity, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ followings_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -789,19 +789,19 @@
                                                     {{ followers_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if followers_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' followers_activity.task.id %}">
-                                                            {{ followers_activity.task.task_name }}
-                                                        </a></h4>
-                                                        <div class="attachment-text">
-                                                            {{ followers_activity.task.task_description }}
-                                                        </div>
-                                                    </div>
-                                                {% else %}
-                                                    <!-- No task for this activity, blank -->
-                                                {% endif %}
+{#                                                {% if followers_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' followers_activity.task.id %}">#}
+{#                                                            {{ followers_activity.task.task_name }}#}
+{#                                                        </a></h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ followers_activity.task.task_description }}#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                {% else %}#}
+{#                                                    <!-- No task for this activity, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ followers_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -921,19 +921,19 @@
                                                     {{ my_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if my_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' my_activity.task.id %}">
-                                                            {{ my_activity.task.task_name }}
-                                                        </a></h4>
-                                                        <div class="attachment-text">
-                                                            {{ my_activity.task.task_description }}
-                                                        </div><!-- /.attachment-text -->
-                                                    </div><!-- /.attachment-block -->
-                                                {% else %}
-                                                    <!-- This activity do not have task, blank -->
-                                                {% endif %}
+{#                                                {% if my_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' my_activity.task.id %}">#}
+{#                                                            {{ my_activity.task.task_name }}#}
+{#                                                        </a></h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ my_activity.task.task_description }}#}
+{#                                                        </div><!-- /.attachment-text -->#}
+{#                                                    </div><!-- /.attachment-block -->#}
+{#                                                {% else %}#}
+{#                                                    <!-- This activity do not have task, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ my_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -1036,18 +1036,18 @@
                                                     {{ followings_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if followings_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' followings_activity.task.id %}">{{ followings_activity.task.task_name }}</a>
-                                                        </h4>
-                                                        <div class="attachment-text">
-                                                            {{ followings_activity.task.task_description }}
-                                                        </div>
-                                                    </div>
-                                                {% else %}
-                                                    <!-- No task for this activity, blank -->
-                                                {% endif %}
+{#                                                {% if followings_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' followings_activity.task.id %}">{{ followings_activity.task.task_name }}</a>#}
+{#                                                        </h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ followings_activity.task.task_description }}#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                {% else %}#}
+{#                                                    <!-- No task for this activity, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ followings_activity.comment_set.all | length }} comments</span>
                                             </div>
@@ -1134,7 +1134,7 @@
                                                          alt="user image">
                                                 {% endif %}
                                                 <span class='username'>
-                                      <a href="{% url 'other_profile' followers_activity.user %}">{{ followers_activity.user }}</a>
+                                      <a href="{% url 'other_profile' followers_activity.user.id %}">{{ followers_activity.user }}</a>
                                       <a href='#'
                                          class='pull-right btn-box-tool'>{{ followers_activity.user.first_name }} {{ followers_activity.user.last_name }}</a>
                                     </span>
@@ -1148,19 +1148,19 @@
                                                     {{ followers_activity.description }}
                                                 {% endautoescape %}
 
-                                                {% if followers_activity.task %}
-                                                    <div class="attachment-block clearfix">
-                                                        <h4 class="attachment-heading"><a
-                                                                href="{% url 'taskDetail' followers_activity.task.id %}">
-                                                            {{ followers_activity.task.task_name }}
-                                                        </a></h4>
-                                                        <div class="attachment-text">
-                                                            {{ followers_activity.task.task_description }}
-                                                        </div>
-                                                    </div>
-                                                {% else %}
-                                                    <!-- No task for this activity, blank -->
-                                                {% endif %}
+{#                                                {% if followers_activity.task %}#}
+{#                                                    <div class="attachment-block clearfix">#}
+{#                                                        <h4 class="attachment-heading"><a#}
+{#                                                                href="{% url 'taskDetail' followers_activity.task.id %}">#}
+{#                                                            {{ followers_activity.task.task_name }}#}
+{#                                                        </a></h4>#}
+{#                                                        <div class="attachment-text">#}
+{#                                                            {{ followers_activity.task.task_description }}#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                {% else %}#}
+{#                                                    <!-- No task for this activity, blank -->#}
+{#                                                {% endif %}#}
 
                                                 <span class='pull-right text-muted'>{{ followers_activity.comment_set.all | length }} comments</span>
                                             </div>

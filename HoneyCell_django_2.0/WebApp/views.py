@@ -273,6 +273,9 @@ def fileManage_tasks(request, folder_id):
         tasks = paginator.page(paginator.num_pages)
     context['tasks'] = tasks
 
+    if len(tasks) == 0:
+        context['empty'] = True
+
     context['LABEL_CHOICES'] = LABEL_CHOICES
     context['ALGORITHM_CHOICES'] = ALGORITHM_CHOICES
     context['STATUS_CHOICES'] = STATUS_CHOICES
@@ -1162,6 +1165,9 @@ def warning_tasks(request):
         tasks = paginator.page(paginator.num_pages)
     context['tasks'] = tasks
 
+    if len(tasks) == 0:
+        context['empty'] = True
+
     context['LABEL_CHOICES'] = LABEL_CHOICES
     context['ALGORITHM_CHOICES'] = ALGORITHM_CHOICES
     context['STATUS_CHOICES'] = STATUS_CHOICES
@@ -1204,9 +1210,14 @@ def information_tasks(request):
         tasks = paginator.page(paginator.num_pages)
     context['tasks'] = tasks
 
+    if len(tasks) == 0:
+        context['empty'] = True
+
+
     context['LABEL_CHOICES'] = LABEL_CHOICES
     context['ALGORITHM_CHOICES'] = ALGORITHM_CHOICES
     context['STATUS_CHOICES'] = STATUS_CHOICES
+
 
     return render(request, 'WebApp/label_task.html', context)
 

@@ -1,47 +1,47 @@
 {
-    "Recall": 0.88,
+    "Recall": 0.9733333333333334,
     "LabelNum": 3,
     "Labels": [
         {
-            "F1Measure": 0.8440366972477064,
-            "Recall": 0.92,
-            "Precision": 0.7796610169491526
+            "F1Measure": 0.9702970297029702,
+            "Recall": 0.9607843137254902,
+            "Precision": 0.98
         },
         {
             "F1Measure": 0.98989898989899,
-            "Recall": 0.98,
-            "Precision": 1.0
+            "Recall": 1.0,
+            "Precision": 0.98
         },
         {
-            "F1Measure": 0.8043478260869565,
-            "Recall": 0.74,
-            "Precision": 0.8809523809523809
+            "F1Measure": 0.96,
+            "Recall": 0.96,
+            "Precision": 0.96
         }
     ],
     "ConfusionMatrix": [
         [
-            46.0,
+            49.0,
             0.0,
-            4.0
+            2.0
         ],
         [
             0.0,
             49.0,
-            1.0
+            0.0
         ],
         [
-            13.0,
-            0.0,
-            37.0
+            1.0,
+            1.0,
+            48.0
         ]
     ],
-    "Precision": 0.88,
-    "TaskId": "12345678",
+    "Precision": 0.9733333333333334,
+    "TaskId": "RandomForest",
     "AlgorithmName": "LogisticRegression",
-    "F1Score": 0.88,
+    "F1Score": 0.9733333333333334,
     "WeightedStats": {
-        "FalsePositiveRate": 0.06,
-        "F1Score": 0.879427837744551,
-        "Precision": 0.88
+        "FalsePositiveRate": 0.013335333533353337,
+        "F1Score": 0.9732679934660131,
+        "Precision": 0.9733333333333334
     }
 }
