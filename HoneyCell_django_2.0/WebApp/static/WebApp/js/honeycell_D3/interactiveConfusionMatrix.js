@@ -266,7 +266,8 @@ d3.json("/get_json_result/" + task_id, function(error, json_data){
             var legend = d3.select("#dashboard")
                         .append("table")
                         .attr('class', 'legend')
-                        .attr("transform", "translate(" + 550 + " ," + 150 + ")")
+                        // .append("g")
+                        // .attr("transform", "translate(" + 700 + " ," + 150 + ")")
                         ;
 
             // create one row per segment.
