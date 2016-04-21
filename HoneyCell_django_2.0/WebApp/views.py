@@ -72,7 +72,10 @@ def registration(request):
                             password = request.POST['password'],)
 
     new_activity_instance = Activity(user=new_user)
-    new_activity_instance.description = new_user.username + " register an account."
+
+
+    # add activity description
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" + str(new_user.id) + "'>" + new_user.username + "</a>" + " register an account."
     new_activity_instance.save()
 
     # create Profile object for the user
@@ -428,7 +431,8 @@ def create_new_task(request):
     new_task_instance.save()
     print("Already save the new_task_instance.")
 
-    print(new_task_instance)
+
+    print(ALGORITHM_CHOICES[new_task_instance.task_algorithm - 1][1])
 
     new_activity_instance = Activity(user=request.user,
                                      task=new_task_instance,
@@ -1658,12 +1662,25 @@ def other_profile_add_comment(request, activity_id):
 
 
 
+@login_required
+def all_profile(request, user_id):
+    print("in the all_profile function.")
 
+    context = {}
 
+    print("%" * 50)
+    print(request.user.id)
+    print(user_id)
+    print("%" * 50)
 
+    user = User.objects.get(id=user_id)
 
-
-
+    if request.user.username == user.username:
+        print("equal")
+        return profile(request)
+    else:
+        print("not equal")
+        return other_profile(request, user_id)
 
 
 

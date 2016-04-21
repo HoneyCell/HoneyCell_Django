@@ -38,6 +38,8 @@ urlpatterns = [
     # go to specific folder
     url(r'^fileManage_tasks/(?P<folder_id>\d+)$', 'WebApp.views.fileManage_tasks', name='fileManage_tasks'),
 
+
+
     # profile tasks page
     url(r'^profile/$', 'WebApp.views.profile', name='profile'),
 
@@ -132,6 +134,10 @@ urlpatterns = [
 
     # function to load json file
     url(r'^get_json_result/(?P<task_id>\d+)$', 'WebApp.views.get_json_result', name='get_json_result'),
+
+
+    url(r'all_profile/(?P<user_id>\d+)$', 'WebApp.views.all_profile', name='all_profile'),
+
 
 
 

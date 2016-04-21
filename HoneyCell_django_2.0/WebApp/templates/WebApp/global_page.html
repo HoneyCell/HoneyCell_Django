@@ -69,7 +69,10 @@
                             </div>
                         </div>
                         <div class='box-body'>
-                            <p><b>{{ activity.description }}</b></p>
+                        {% autoescape off %}
+                            <p>{{ activity.description }}
+                        {% endautoescape %}
+
                             {% if activity.task.task_name %}
                             <div class="attachment-block clearfix">
                                 <h3 class="attachment-heading">Task Detail:</h3>
