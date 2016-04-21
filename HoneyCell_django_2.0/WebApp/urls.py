@@ -140,6 +140,9 @@ urlpatterns = [
 
 
 
+    url(r'^add_comment_taskDetail/(?P<activity_id>\d+)$', 'WebApp.views.add_comment_taskDetail', name='add_comment_taskDetail'),
+
+
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

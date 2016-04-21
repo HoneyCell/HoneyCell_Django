@@ -83,49 +83,49 @@
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
                             <tr>
-                                <th>ID</th>
+{#                                <th>ID</th>#}
                                 <th>Task Name</th>
                                 <th>Folder</th>
                                 <th>Created Date</th>
                                 <th>Status</th>
-                                <th>Description</th>
+{#                                <th>Description</th>#}
                                 <th>Modified Date</th>
                             </tr>
                             {% for task in tasks %}
                                 {% if task.task_status == 1 %}
                                     <tr>
-                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>
+{#                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>#}
                                         <td><a href="{% url 'taskDetail' task.id %}">{{ task.task_name }}</a></td>
                                         <td>
                                             <a href="{% url 'fileManage_tasks' task.task_folder.id %}">{{ task.task_folder.folder_name }}</a>
                                         </td>
                                         <td>{{ task.task_time_created }}</td>
                                         <td><span class="label label-warning">{{ STATUS_CHOICES.0.1 }}</span></td>
-                                        <td>{{ task.task_description }}</td>
+{#                                        <td>{{ task.task_description }}</td>#}
                                         <td>{{ task.task_time_changed }}</td>
                                     </tr>
                                 {% elif task.task_status == 2 %}
                                     <tr>
-                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>
+{#                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>#}
                                         <td><a href="{% url 'taskDetail' task.id %}">{{ task.task_name }}</a></td>
                                         <td>
                                             <a href="{% url 'fileManage_tasks' task.task_folder.id %}">{{ task.task_folder.folder_name }}</a>
                                         </td>
                                         <td>{{ task.task_time_created }}</td>
                                         <td><span class="label label-success">{{ STATUS_CHOICES.1.1 }}</span></td>
-                                        <td>{{ task.task_description }}</td>
+{#                                        <td>{{ task.task_description }}</td>#}
                                         <td>{{ task.task_time_changed }}</td>
                                     </tr>
                                 {% elif task.task_status == 3 %}
                                     <tr>
-                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>
+{#                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>#}
                                         <td><a href="{% url 'taskDetail' task.id %}">{{ task.task_name }}</a></td>
                                         <td>
                                             <a href="{% url 'fileManage_tasks' task.task_folder.id %}">{{ task.task_folder.folder_name }}</a>
                                         </td>
                                         <td>{{ task.task_time_created }}</td>
                                         <td><span class="label label-danger">{{ STATUS_CHOICES.2.1 }}</span></td>
-                                        <td>{{ task.task_description }}</td>
+{#                                        <td>{{ task.task_description }}</td>#}
                                         <td>{{ task.task_time_changed }}</td>
                                     </tr>
                                 {% else %}

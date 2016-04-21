@@ -60,7 +60,7 @@ class Task(models.Model):
     task_time_created = models.DateTimeField(auto_now_add=True)
     task_time_changed = models.DateTimeField(auto_now=True)
     input_file_address = models.CharField(default="", max_length=100)
-    output_file_address = models.CharField(default="", max_length=100)
+    output_file_address = models.CharField(default="abc", max_length=100)
 
     def __unicode__(self):
         return "%s by %s" %(self.task_name, self.user.username)

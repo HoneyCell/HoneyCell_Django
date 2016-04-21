@@ -451,7 +451,7 @@ def create_new_task(request):
                                         + "'>" \
                                         + request.user.username\
                                         + "</a>" \
-                                        + "create a new task " \
+                                        + " create a new task " \
                                         + "<a href='http://127.0.0.1:8000/taskDetail/" \
                                         + str(new_task_instance.id) \
                                         + "'>" \
@@ -484,9 +484,9 @@ def create_new_task(request):
     my_json = {'task_id':new_task_instance.id, 'train_address': tranining_address, 'test_address': testing_address, 'algorithm': algorithm_chosen}
 
     # create a new thread to request for HoneyComb
-    new_thread = threading.Thread(target = new_thread_for_new_task, kwargs={'my_json': my_json})
-    new_thread.daemon = True
-    new_thread.start()
+    # new_thread = threading.Thread(target = new_thread_for_new_task, kwargs={'my_json': my_json})
+    # new_thread.daemon = True
+    # new_thread.start()
 
     return HttpResponseRedirect(reverse('taskDetail', kwargs={'task_id': new_task_instance.id}))
 
@@ -810,6 +810,10 @@ def taskDetail(request, task_id):
 
     context['task_id'] = task_id
 
+    activity = task.activity
+    context['activity'] = activity
+
+
     return render(request, 'WebApp/taskDetail.html', context)
 
 
@@ -856,16 +860,18 @@ def get_json_result(request, task_id):
 
             print("Read local JSON file.")
 
+            algorithm_string = ALGORITHM_CHOICES[finished_task.task_algorithm - 1][1]
 
-            algorithm_string = ALGORITHM_CHOICES[finished_task.task_algorithm][1]
+            print(algorithm_string)
 
             if algorithm_string == "RandomForest":
+                print("read RandomForest.json")
                 # get local json result file for RandomForest algorithm
                 json_url = 'WebApp/static/WebApp/json/RandomForest.json'
             else:
+                print("read LogisticRegression.json")
                 # get local json result file for LogisticRegression algorithm
                 json_url = 'WebApp/static/WebApp/json/LogisticRegression.json'
-
 
 
             BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -919,7 +925,17 @@ def update_task(request, task_id):
     print("Already update task's information.")
 
     new_activity_instance = Activity(user=request.user)
-    new_activity_instance.description = request.user.username + " update " + task.task_name + "'s information."
+    new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                        + str(request.user.id) \
+                                        + "'>" \
+                                        + request.user.username\
+                                        + "</a>" + \
+                                        " update " + \
+                                        "<a href='http://127.0.0.1:8000/taskDetail/" \
+                                        + str(task.id) + "'>" \
+                                        + task.task_name \
+                                        + "</a>" \
+                                        + "'s information."
     new_activity_instance.save()
 
 
@@ -1404,7 +1420,7 @@ def other_profile(request, user_id):
 @login_required
 def add_comment(request, activity_id):
     print("in the add_comment function.")
-    context = {};
+    context = {}
 
     user = request.user
     context['user'] = user
@@ -1814,6 +1830,49 @@ def all_profile(request, user_id):
 
 
 
+
+
+@login_required
+def add_comment_taskDetail(request, activity_id):
+    print(" in the add_comment_taskDetail function.")
+
+    context = {}
+
+    user = request.user
+    context['user'] = user
+
+    # profile = Profile.objects.get(user=request.user)
+    # context['profile'] = profile
+
+    activity = Activity.objects.get(id=activity_id)
+
+    comment_text = request.POST['comment_text']
+
+    new_comment_instance = Comment(user=user,
+                                   activity=activity,
+                                   text=comment_text)
+    new_comment_instance.save()
+    print("Successfully save new_comment_instance.")
+
+
+    # if the comment target activity has task, we add into activities
+    if new_comment_instance.activity.task:
+        new_activity_instance = Activity(user=request.user)
+        new_activity_instance.description = "<a href='http://127.0.0.1:8000/all_profile/" \
+                                            + str(request.user.id) \
+                                            + "'>" \
+                                            + request.user.username\
+                                            + "</a>" \
+                                            + " add a comment to " \
+                                            + "<a href='http://127.0.0.1:8000/taskDetail/" \
+                                            + str(new_comment_instance.activity.task.id) \
+                                            + "'>" \
+                                            + new_comment_instance.activity.task.task_name \
+                                            + "</a>."
+        new_activity_instance.save()
+
+
+    return HttpResponseRedirect(reverse('taskDetail', kwargs={'task_id': activity.task.id}))
 
 
 

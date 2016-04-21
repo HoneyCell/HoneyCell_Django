@@ -70,25 +70,25 @@
                         </div>
                         <div class='box-body'>
                         {% autoescape off %}
-                            {{ activity.description }}
+                            <strong>{{ activity.description }}</strong>
                         {% endautoescape %}
 
-                            {% if activity.task.task_name %}
-                            <div class="attachment-block clearfix">
-                                <!-- <h3 class="attachment-heading">Task Detail:</h3> -->
-                                <h4 class="attachment-heading"> <a href="{% url 'taskDetail' activity.task.id %}">{{ activity.task.task_name }}</a></h4>
-                                <div class="attachment-text">
-                                    {{ activity.task.task_description }}
-                                </div>
-                            </div>
-                            {% endif %}
+{#                            {% if activity.task.task_name %}#}
+{#                            <div class="attachment-block clearfix">#}
+{#                                <!-- <h3 class="attachment-heading">Task Detail:</h3> -->#}
+{#                                <h4 class="attachment-heading"> <a href="{% url 'taskDetail' activity.task.id %}">{{ activity.task.task_name }}</a></h4>#}
+{#                                <div class="attachment-text">#}
+{#                                    {{ activity.task.task_description }}#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            {% endif %}#}
                             <!-- To show the number of comments -->
                             <span class='pull-right text-muted'>{{ activity.comment_set.all | length }} comments in total</span>
                         </div>
 
                         <!-- To show all the comment for this activities -->
                         {% for comment in activity.comment_set.all %}
-                            <div class='box-footer box-comments'>
+                            <div class='box-footer box-comments' style="margin-left: 22px;">
                                 <div class='box-comment'>
                                     <!-- User image -->
                                     {% if comment.user.profile.image %}
@@ -101,7 +101,7 @@
                                           <a href="{% url 'all_profile' comment.user.id %}">{{ comment.user }}</a>
                                           <span class='text-muted pull-right'>{{ comment.time_created }}</span>
                                         </span><!-- /.username -->
-                                        <p class="comment-style">{{ comment.text }}</p>
+                                        <i><p class="comment-style">{{ comment.text }}</p></i>
                                     </div>
                                 </div>
                             </div>
