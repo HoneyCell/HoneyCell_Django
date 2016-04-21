@@ -15,7 +15,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
-setInterval(task_finished_popup, 5000);
+setInterval(task_finished_popup, 2000);
 
 function task_finished_popup() {
 	var username = document.getElementById("myUsername").innerHTML;
