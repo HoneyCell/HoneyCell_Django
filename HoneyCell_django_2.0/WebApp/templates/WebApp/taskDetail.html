@@ -7,20 +7,16 @@
     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-
 {% endblock javascript_header %}
 
 
 {% block active_sidebar %}
-
-
-
     <li class="treeview">
         <a href="{% url 'index' %}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
     </li>
-    <li class="treeview">
+    <li class="treeview active">
         <a href="#">
             <i class="fa fa-files-o"></i>
             <span>Tasks</span>
@@ -109,7 +105,7 @@
                         <li ><a href="#label_detail" data-toggle="tab">Label Detail</a></li>
                         <li class="active"><a href="#label_precision" data-toggle="tab">Label Precision</a></li>
                         <li><a href="#confusion_matrix" data-toggle="tab">Confusion Matrix</a></li>
-                        <li class="pull-left header"><i class="fa fa-inbox"></i> D3.js</li>
+                        <li class="pull-left header"><i class="fa fa-inbox"></i>Result Visualization</li>
                     </ul>
                     <div class="tab-content no-padding">
                         <!-- Morris chart - D3.js -->
