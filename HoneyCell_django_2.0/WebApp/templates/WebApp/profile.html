@@ -201,7 +201,7 @@
 
                                             {% if my_activity.comment_set.all %}
 
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
                                                     <!-- for all comments here -->
                                                     <div class='box-comment'>
                                                         {% for comment in my_activity.comment_set.all %}
@@ -235,23 +235,27 @@
                                             <br>
 
                                             <!-- Send comment to this activity -->
-                                            <form action="{% url 'profile_add_comment' my_activity.id %}" method="POST"
+
+                                            <form action="{% url 'profile_add_comment' my_activity.id %}"
+                                                  method="POST"
                                                   class='form-horizontal'>{% csrf_token %}
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
-                                                <input type="hidden" name="current_tab" value="{{ "my_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <input type="hidden" name="current_tab"
+                                                       value="{{ "my_activities" }}">
+                                                <div class='form-group margin-bottom-none' style="margin-left: 10px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
                                                     </div>
-
                                                     <div class='col-sm-3'>
                                                         <button type="submit"
-                                                                class='btn btn-primary pull-right btn-block btn-sm'>Send
+                                                                class='btn btn-primary pull-right btn-block btn-sm'>
+                                                            Send
                                                         </button>
                                                     </div>
                                                 </div>
                                             </form>
+
                                         </div><!-- /.post-->
                                     {% endfor %}
                                 {% else %}
@@ -316,7 +320,7 @@
 
                                             {% if followings_activity.comment_set.all %}
                                                 <!-- for all comments here -->
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <div class='box-comment'>
                                                         {% for comment in followings_activity.comment_set.all %}
@@ -354,7 +358,7 @@
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab"
                                                        value="{{ "followings_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left: 10px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
@@ -426,7 +430,7 @@
 
                                             {% if followers_activity.comment_set.all %}
                                                 <!-- for all comments here -->
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <div class='box-comment'>
                                                         {% for comment in followers_activity.comment_set.all %}
@@ -464,7 +468,7 @@
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab"
                                                        value="{{ "followers_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left:10px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
@@ -556,7 +560,7 @@
                                             </div>
 
                                             {% if my_activity.comment_set.all %}
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <!-- for all comments here -->
                                                     <div class='box-comment'>
@@ -596,7 +600,7 @@
                                                   class='form-horizontal'>{% csrf_token %}
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab" value="{{ "my_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left: 15px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
@@ -653,7 +657,7 @@
                                                 {% autoescape off %}
                                                     {{ followings_activity.description }}
                                                 {% endautoescape %}
-                                            
+
                                                 {% if followings_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -673,7 +677,7 @@
 
                                             {% if followings_activity.comment_set.all %}
                                                 <!-- for all comments here -->
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <div class='box-comment'>
                                                         {% for comment in followings_activity.comment_set.all %}
@@ -713,7 +717,7 @@
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab"
                                                        value="{{ "followings_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left: 10px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
@@ -784,7 +788,7 @@
                                                 {% autoescape off %}
                                                     {{ followers_activity.description }}
                                                 {% endautoescape %}
-                                            
+
                                                 {% if followers_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -805,7 +809,7 @@
 
                                             {% if followers_activity.comment_set.all %}
                                                 <!-- for all comments here -->
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <div class='box-comment'>
                                                         {% for comment in followers_activity.comment_set.all %}
@@ -843,7 +847,7 @@
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab"
                                                        value="{{ "followers_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left: 10px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
@@ -912,11 +916,11 @@
 
 
                                             <div class='box-body'>
-                                            
+
                                                 {% autoescape off %}
                                                     {{ my_activity.description }}
                                                 {% endautoescape %}
-                                            
+
                                                 {% if my_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -935,7 +939,7 @@
                                             </div>
 
                                             {% if my_activity.comment_set.all %}
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <!-- for all comments here -->
                                                     <div class='box-comment'>
@@ -974,7 +978,7 @@
                                                   class='form-horizontal'>{% csrf_token %}
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab" value="{{ "my_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left: 10px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
@@ -1027,11 +1031,11 @@
 
 
                                             <div class='box-body'>
-                                            
+
                                                 {% autoescape off %}
                                                     {{ followings_activity.description }}
                                                 {% endautoescape %}
-                                            
+
                                                 {% if followings_activity.task %}
                                                     <div class="attachment-block clearfix">
                                                         <h4 class="attachment-heading"><a
@@ -1051,7 +1055,7 @@
 
                                             {% if followings_activity.comment_set.all %}
                                                 <!-- for all comments here -->
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <div class='box-comment'>
                                                         {% for comment in followings_activity.comment_set.all %}
@@ -1089,7 +1093,7 @@
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab"
                                                        value="{{ "followings_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left: 10px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">
@@ -1164,7 +1168,7 @@
 
                                             {% if followers_activity.comment_set.all %}
                                                 <!-- for all comments here -->
-                                                <div class='box-footer box-comments'>
+                                                <div class='box-footer box-comments' style="margin-left: 15px;">
 
                                                     <div class='box-comment'>
                                                         {% for comment in followers_activity.comment_set.all %}
@@ -1202,7 +1206,7 @@
                                                 <input type="hidden" name="recent_tab" value="{{ recent_tab }}">
                                                 <input type="hidden" name="current_tab"
                                                        value="{{ "followers_activities" }}">
-                                                <div class='form-group margin-bottom-none'>
+                                                <div class='form-group margin-bottom-none' style="margin-left: 15px;">
                                                     <div class='col-sm-9'>
                                                         <input name="comment_text" class="form-control input-sm"
                                                                placeholder="Comments">

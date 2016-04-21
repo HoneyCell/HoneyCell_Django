@@ -59,41 +59,84 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="box box-widget widget-user-2">
                                 <div class="followship-header">
+
                                     <div class="widget-user-image">
                                         {% if following.follower.profile.image %}
                                             <img class="img-circle"
                                                  src="{% url "get_user_picture" following.follower.id %}"
                                                  alt="User Avatar">
                                         {% else %}
-                                            <img class="img-circle" src="{% static "WebApp/img/anonymous_user.jpg" %}"
+                                            <img class="img-circle"
+                                                 src="{% static "WebApp/img/anonymous_user.jpg" %}"
                                                  alt="User Avatar">
                                         {% endif %}
                                     </div>
+
+
                                     <h3 class="widget-user-username"><a
                                             href="{% url 'other_profile' following.follower.id %}">{{ following.follower.username }}</a>
                                     </h3>
-                                    <h5 class="widget-user-desc">{{ following.follower.first_name }} {{ following.follower.last_name }}</h5>
 
+                                    <br>
 
-                                    {% if user.email %}
+                                    <!-- show email -->
+                                    {% if following.follower.first_name %}
                                         <h5 class="widget-user-desc">
-                                            <strong><i class="fa fa-envelope margin-r-5"></i> Email: </strong>
-                                            {{ following.follower.email }}
+                                            <strong><i class="fa fa-user margin-r-5"></i><i>Full name:</i>&nbsp;&nbsp;
+                                            </strong>
+                                            <strong>{{ following.follower.first_name }} {{ following.follower.last_name }}</strong>
                                         </h5>
                                     {% endif %}
 
 
 
-                                    {% if profile.company %}
+                                    <!-- show email -->
+                                    {% if following.follower.email %}
                                         <h5 class="widget-user-desc">
-                                            <strong><i class="fa fa-book margin-r-5"></i> Company: </strong>
-                                            {{ following.follower.profile.company }}
+                                            <strong><i class="fa fa-envelope margin-r-5"></i><i>Email:</i>&nbsp;&nbsp;
+                                            </strong>
+                                            <strong>{{ following.follower.email }}</strong>
                                         </h5>
                                     {% endif %}
 
-                                    <h5 class="widget-user-desc">{{ following.follower.profile.location }}</h5>
-                                    <h5 class="widget-user-desc">{{ following.follower.profile.website }}</h5>
-                                    <h5 class="widget-user-desc">{{ following.follower.profile.short_introduction }}</h5>
+                                    <!-- show company -->
+                                    {% if following.follower.profile.company %}
+                                        <h5 class="widget-user-desc">
+                                            <strong><i class="fa fa-book margin-r-5"></i><i>Company:</i>&nbsp;&nbsp;
+                                            </strong>
+                                            <strong>{{ following.follower.profile.company }}</strong>
+                                        </h5>
+                                    {% endif %}
+
+                                    <!-- show location -->
+                                    {% if following.follower.profile.location %}
+                                        <h5 class="widget-user-desc">
+                                            <strong><i class="fa fa-map-marker margin-r-5"></i><i>Location:</i>&nbsp;&nbsp;
+                                            </strong>
+                                            <strong>{{ following.follower.profile.location }}</strong>
+                                        </h5>
+                                    {% endif %}
+
+                                    <!-- show website -->
+                                    {% if following.follower.profile.website %}
+                                        <h5 class="widget-user-desc">
+                                            <strong><i
+                                                    class="fa fa-external-link margin-r-5"></i><i>Website:</i>&nbsp;&nbsp;
+                                            </strong>
+                                            <strong>{{ following.follower.profile.website }}</strong>
+                                        </h5>
+                                    {% endif %}
+
+                                    <!-- show membership time -->
+                                    {% if following.follower.profile.time_created %}
+                                        <h5 class="widget-user-desc">
+                                            <strong><i
+                                                    class="fa fa-external-link margin-r-5"></i><i>Member Since:</i>&nbsp;&nbsp;
+                                            </strong>
+                                            <strong>{{ following.follower.profile.time_created }}</strong>
+                                        </h5>
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>

@@ -961,7 +961,7 @@ def new_folder(request):
 
     folder_name = request.POST['folder_name']
 
-    if(Folder.objects.filter(folder_name=folder_name)):
+    if(Folder.objects.filter(user=request.user, folder_name=folder_name)):
         # The way to return back the error message needs to be changed later
         errors.append("This folder name already exist, please type in another folder name.")
         print("This folder name already exist, please type in another folder name.")
