@@ -80,7 +80,7 @@
                                     </tr>
                                 {% elif task.task_status == 2 %}
                                     <tr>
-                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>
+{#                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>#}
                                         <td><a href="{% url 'taskDetail' task.id %}">{{ task.task_name }}</a></td>
                                         <td>
                                             <a href="{% url 'fileManage_tasks' task.task_folder.id %}">{{ task.task_folder.folder_name }}</a>
@@ -91,7 +91,7 @@
                                     </tr>
                                 {% elif task.task_status == 3 %}
                                     <tr>
-                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>
+{#                                        <td><a href="{% url 'taskDetail' task.id %}">{{ task.id }}</a></td>#}
                                         <td><a href="{% url 'taskDetail' task.id %}">{{ task.task_name }}</a></td>
                                         <td>
                                             <a href="{% url 'fileManage_tasks' task.task_folder.id %}">{{ task.task_folder.folder_name }}</a>
