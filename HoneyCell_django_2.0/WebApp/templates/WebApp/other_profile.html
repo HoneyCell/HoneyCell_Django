@@ -179,18 +179,18 @@
                                             {{ other_activity.description }}
                                         {% endautoescape %}
 
-                                        {% if other_activity.task %}
-                                            <!-- Attachment -->
-                                            <div class="attachment-block clearfix">
-                                                <h4 class="attachment-heading"><a href="#">Task Name Here</a></h4>
-                                                <div class="attachment-text">
-                                                    Task Description here
-                                                    <a href="#">more</a>
-                                                </div><!-- /.attachment-text -->
-                                            </div><!-- /.attachment-block -->
-                                        {% else %}
-                                            <!-- The activity did not task, leave it blank. -->
-                                        {% endif %}
+{#                                        {% if other_activity.task %}#}
+{#                                            <!-- Attachment -->#}
+{#                                            <div class="attachment-block clearfix">#}
+{#                                                <h4 class="attachment-heading"><a href="#">Task Name Here</a></h4>#}
+{#                                                <div class="attachment-text">#}
+{#                                                    Task Description here#}
+{#                                                    <a href="#">more</a>#}
+{#                                                </div><!-- /.attachment-text -->#}
+{#                                            </div><!-- /.attachment-block -->#}
+{#                                        {% else %}#}
+{#                                            <!-- The activity did not task, leave it blank. -->#}
+{#                                        {% endif %}#}
 
                                         <span class='pull-right text-muted'>{{ other_activity.comment_set.all | length }} comments</span>
                                     </div>
