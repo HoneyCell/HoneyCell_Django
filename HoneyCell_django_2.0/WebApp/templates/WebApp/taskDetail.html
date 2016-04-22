@@ -97,8 +97,17 @@
                         {#                        <div class="text-muted text-overflow">{{ task.task_description }}</div>#}
 
                         <hr>
-                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+
+
+                        {% if other %}
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
+                                data-target="#modifyTaskDetail{{ task.id }}" disabled="disabled"><b>Modify</b></button>
+                        {% else %}
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="modal"
                                 data-target="#modifyTaskDetail{{ task.id }}"><b>Modify</b></button>
+                        {% endif %}
+
+
                         {% include 'WebApp/taskDetail_editTask.html' %}
 
                     </div><!-- /.box-body -->

@@ -802,6 +802,29 @@ def taskDetail(request, task_id):
     activity = task.activity
     context['activity'] = activity
 
+
+    current_user = task.user
+    if user.username == current_user.username:
+
+        context['other'] = False
+
+        print("%" * 50)
+        print(context['other'])
+        print("%" * 50)
+
+
+    else:
+        context['other'] = True
+
+        print("%" * 50)
+        print(context['other'])
+        print("%" * 50)
+
+
+
+
+
+
     return render(request, 'WebApp/taskDetail.html', context)
 
 
